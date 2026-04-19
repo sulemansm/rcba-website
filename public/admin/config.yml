@@ -1,0 +1,74 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "projects"
+    label: "Projects"
+    folder: "content/projects"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Project Name", name: "title", widget: "string" }
+      - { label: "Category", name: "category", widget: "select", options: ["community", "environment", "education"] }
+      - { label: "Emoji Icon", name: "emoji", widget: "string", hint: "Paste an emoji e.g. 📚" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Impact Stat (number)", name: "stat_number", widget: "string" }
+      - { label: "Impact Stat (label)", name: "stat_label", widget: "string" }
+      - { label: "Sort Order", name: "order", widget: "number", default: 99 }
+      - { label: "Active", name: "active", widget: "boolean", default: true }
+
+  - name: "gallery"
+    label: "Gallery"
+    folder: "content/gallery"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Caption", name: "title", widget: "string" }
+      - { label: "Emoji / Icon", name: "emoji", widget: "string" }
+      - { label: "Color Theme", name: "color", widget: "select", options: ["orange", "teal", "purple", "amber", "pink", "multi"] }
+      - { label: "Size", name: "size", widget: "select", options: ["normal", "large", "tall"], default: "normal" }
+      - { label: "Sort Order", name: "order", widget: "number", default: 99 }
+
+  - name: "impact"
+    label: "Impact Numbers"
+    folder: "content/impact"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Label", name: "label", widget: "string" }
+      - { label: "Number (digits only)", name: "number", widget: "number" }
+      - { label: "Color", name: "color", widget: "select", options: ["orange", "teal", "purple", "pink"] }
+
+  - name: "testimonials"
+    label: "Testimonials"
+    folder: "content/testimonials"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Role / Title", name: "role", widget: "string" }
+      - { label: "Quote", name: "quote", widget: "text" }
+      - { label: "Initials", name: "initials", widget: "string", hint: "2 letters e.g. RK" }
+      - { label: "Avatar Color", name: "color", widget: "select", options: ["orange", "teal", "purple"] }
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "General"
+        name: "general"
+        file: "content/settings/general.json"
+        fields:
+          - { label: "Club Name", name: "club_name", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "Hero Headline Line 1", name: "hero_line1", widget: "string" }
+          - { label: "Hero Headline Accent", name: "hero_accent", widget: "string" }
+          - { label: "Hero Headline Line 3", name: "hero_line3", widget: "string" }
+          - { label: "Hero Subtext", name: "hero_sub", widget: "text" }
+          - { label: "Contact Email", name: "email", widget: "string" }
+          - { label: "Instagram URL", name: "instagram", widget: "string" }
+          - { label: "LinkedIn URL", name: "linkedin", widget: "string" }
+          - { label: "WhatsApp Link", name: "whatsapp", widget: "string" }
